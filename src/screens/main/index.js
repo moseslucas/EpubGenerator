@@ -1,6 +1,7 @@
 import React from 'react';
 import {
   Container,
+  Drawer,
   Header,
   Title,
   Content,
@@ -13,6 +14,8 @@ import {
   Icon,
   Text
 } from 'native-base';
+// import WithDrawer from '../../lib/hoc/wihDrawer'
+
 const Main = () => {
   return (
     <Container>
