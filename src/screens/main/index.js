@@ -14,34 +14,24 @@ import {
   Icon,
   Text
 } from 'native-base';
-// import WithDrawer from '../../lib/hoc/wihDrawer'
+import WithDrawer from '../../lib/hoc/withDrawer'
 
-const Main = () => {
+const Main = ({ openDrawer, closeDrawer }) => {
   return (
     <Container>
       <Header>
         <Left>
-          <Button transparent>
+          <Button transparent onPress={openDrawer}>
             <Icon name='menu' />
           </Button>
         </Left>
-        <Body />
+        <Body>
+          <Text>Epub Gen</Text>
+        </Body>
         <Right />
       </Header>
-      <Content contentContainerStyle={{ flex: 1, justifyContent: 'center', alignItems: 'center' }}>
-        <Text>
-          Epub Generator
-        </Text>
-      </Content>
-      <Footer>
-        <FooterTab>
-          <Button full onPress={() => alert('Section created')}>
-            <Text>ADD SECTION</Text>
-          </Button>
-        </FooterTab>
-      </Footer>
     </Container>
   );
 }
 
-export default Main
+export default WithDrawer(Main)

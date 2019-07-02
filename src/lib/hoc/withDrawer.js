@@ -1,6 +1,6 @@
 import React, { Component } from 'react'
 import { Drawer, Text } from 'native-base'
-import Menu from './Menu'
+// import Menu from './Menu'
 
 const WithDrawer = (WrappedComponent) => {
   return class extends Component {
@@ -31,7 +31,11 @@ const WithDrawer = (WrappedComponent) => {
           content={<Text>TEST</Text>}
           onClose={_ => this.closeDrawer()}
         >
-          <WrappedComponent openDrawer={this.openDrawer} {...this.props} />
+          <WrappedComponent
+            openDrawer={this.openDrawer}
+            closeDrawer={this.closeDrawer}
+            {...this.props}
+          />
         </Drawer>
       )
     }
