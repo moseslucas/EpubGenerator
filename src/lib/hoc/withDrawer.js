@@ -1,5 +1,6 @@
 import React, { Component } from 'react'
 import { Drawer, Text } from 'native-base'
+import SideBar from '../components/SideBar'
 // import Menu from './Menu'
 
 const WithDrawer = (WrappedComponent) => {
@@ -28,7 +29,7 @@ const WithDrawer = (WrappedComponent) => {
       return (
         <Drawer
           ref={ref => { this.drawer = ref }}
-          content={<Text>TEST</Text>}
+          content={<SideBar />}
           onClose={_ => this.closeDrawer()}
         >
           <WrappedComponent
