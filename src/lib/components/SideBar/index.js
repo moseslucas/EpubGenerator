@@ -8,7 +8,7 @@ import {
   Icon,
   Text
 } from 'native-base'
-import dummy from '../../api/dummy'
+import dummy from 'lib/api/dummy'
 
 
 const SideBar = () => {

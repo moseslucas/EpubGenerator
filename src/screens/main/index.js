@@ -14,7 +14,12 @@ import {
   Icon,
   Text
 } from 'native-base';
-import WithDrawer from '../../lib/hoc/withDrawer'
+import { FlatGrid } from 'react-native-super-grid'
+
+import WithDrawer from 'lib/hoc/withDrawer'
+import FloatingAddButton from 'components/FloatingAddButton'
+import Articles from 'components/Articles'
+
 
 const Main = ({ openDrawer, closeDrawer }) => {
   return (
@@ -30,6 +35,10 @@ const Main = ({ openDrawer, closeDrawer }) => {
         </Body>
         <Right />
       </Header>
+      <Content>
+        <Articles />
+      </Content>
+      <FloatingAddButton />
     </Container>
   );
 }
