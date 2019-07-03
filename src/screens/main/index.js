@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import {
   Container,
   Drawer,
@@ -16,12 +16,23 @@ import {
 } from 'native-base';
 import { FlatGrid } from 'react-native-super-grid'
 
+import dummy from 'lib/api/dummy'
 import WithDrawer from 'lib/hoc/withDrawer'
 import FloatingAddButton from 'components/FloatingAddButton'
 import Articles from 'components/Articles'
 
 
-const Main = ({ openDrawer, closeDrawer }) => {
+const Main = ({ navigation, openDrawer, closeDrawer }) => {
+  const [currentBook, setCurrentBook] = useState(0)
+  const [books, setBooks] = useState(dummy.books)
+
+  const handleAdd = () => {
+    navigation.navigate('AddChapter')
+  }
+
+  const handleAddBook = ({ title, description, id }) => {
+  }
+
   return (
     <Container>
       <Header>
@@ -31,14 +42,14 @@ const Main = ({ openDrawer, closeDrawer }) => {
           </Button>
         </Left>
         <Body>
-          <Text>Epub Gen</Text>
+          <Text style={{ color: '#fff' }}>Epub Gen</Text>
         </Body>
         <Right />
       </Header>
       <Content>
-        <Articles />
+        <Articles chapters={books[currentBook].chapters}/>
       </Content>
-      <FloatingAddButton />
+      <FloatingAddButton onPress={handleAdd}/>
     </Container>
   );
 }

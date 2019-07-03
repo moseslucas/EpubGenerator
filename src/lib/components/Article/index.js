@@ -1,19 +1,32 @@
 import React from 'react'
+import { TouchableOpacity } from 'react-native'
+import { withNavigation } from 'react-navigation'
 import { Body, Card, CardItem, Text } from 'native-base'
 
-const Article = () => {
+const Article = ({ navigation, chapter }) => {
+  const handlePress = () => {
+    navigation.navigate({
+      routeName: 'ViewChapter',
+      params: chapter
+    })
+  }
+
   return (
-    <Card>
-      <CardItem header>
-        <Text>Title</Text>
-      </CardItem>
-      <CardItem>
-        <Body>
-          <Text>blabla</Text>
-        </Body>
-      </CardItem>
-    </Card>
+    <TouchableOpacity onPress={handlePress}>
+      <Card>
+        <CardItem header>
+          <Text>{chapter.title}</Text>
+        </CardItem>
+        <CardItem>
+          <Body>
+            <Text numberOfLines={4}>
+              {chapter.content}
+            </Text>
+          </Body>
+        </CardItem>
+      </Card>
+    </TouchableOpacity>
   )
 }
 
-export default Article
+export default withNavigation(Article)

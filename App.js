@@ -5,13 +5,16 @@
  * @format
  * @flow
  */
-import Main from './src/screens/main'
+import { createAppContainer } from 'react-navigation'
+import MainNavigator from './src/screens/main/route'
 
 import React from 'react';
 
+const AppContainer = createAppContainer(MainNavigator)
+
 const App = () => {
   return (
-    <Main />
+    <AppContainer />
   )
 }
 

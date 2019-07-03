@@ -1,4 +1,5 @@
 import React from 'react'
+import { withNavigation } from 'react-navigation'
 import {
   Content,
   List,
@@ -11,11 +12,19 @@ import {
 import dummy from 'lib/api/dummy'
 
 
-const SideBar = () => {
+const SideBar = ({ navigation }) => {
+  const addBook = () => {
+    navigation.navigate('AddBook')
+  }
+
   return (
 		<Content style={{backgroundColor:'#FFFFFF'}}>
 			<List>
-				<ListItem icon>
+        <ListItem
+          icon
+          style={{ paddingVertical: 5 }}
+          onPress={addBook}
+        >
 					<Left>
 						<Icon name="add" />
 					</Left>
@@ -25,7 +34,7 @@ const SideBar = () => {
 				</ListItem>
         {
           dummy.books.map(book => (
-            <ListItem icon key={book.id}>
+            <ListItem icon key={book.id} style={{ paddingVertical: 5 }}>
               <Body >
                 <Text>{book.title}</Text>
               </Body>
@@ -38,4 +47,4 @@ const SideBar = () => {
   )
 }
 
-export default SideBar
+export default withNavigation(SideBar)
